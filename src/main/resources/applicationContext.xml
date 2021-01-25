@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:aop = "http://www.springframework.org/schema/aop"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/aop
+   		http://www.springframework.org/schema/aop/spring-aop.xsd
+        ">
+
+    <bean
+            id="SceneBean"
+            class="GraphicScene"
+            scope="singleton">
+        <property name="graphics">
+            <list>
+                <ref bean="CircleBean"/>
+                <ref bean="PointBean"/>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="PivotBean55" class="Pivot" scope="prototype">
+        <constructor-arg value="5"/>
+        <constructor-arg value="5"/>
+    </bean>
+
+    <bean id="PivotBean35" class="Pivot" scope="prototype">
+        <constructor-arg value="3"/>
+        <constructor-arg value="5"/>
+    </bean>
+
+    <bean id="CircleBean" class="Circle" scope="prototype">
+        <constructor-arg ref="PivotBean55"/>
+        <constructor-arg value="5"/>
+    </bean>
+
+    <bean id="PointBean" class="Point" scope="prototype">
+        <constructor-arg ref="PivotBean35"/>
+    </bean>
+
+
+
+
+
+</beans>
