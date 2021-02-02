@@ -46,6 +46,19 @@
         <constructor-arg ref="PivotBean35"/>
     </bean>
 
+    <bean id="CitiesHolderBean" class="cities.CitiesHolder" scope="singleton"></bean>
+
+    <bean id="cityMsk" class="cities.City">
+        <constructor-arg value="10000000"/>
+        <constructor-arg value="Msk"/>
+    </bean>
+
+    <bean id="foundMskBean" class="java.util.GregorianCalendar">
+        <constructor-arg value="1147"/>
+        <constructor-arg value="0"/>
+        <constructor-arg value="0"/>
+    </bean>
+
 
 
 
