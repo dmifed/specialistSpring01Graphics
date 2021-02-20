@@ -6,16 +6,16 @@ import java.util.List;
 
 //Singleton
 public class CitiesHolder {
-    private static List<City> cities;
+    private List<City> cities;
 
     private CitiesHolder(){
-        cities = new ArrayList<City>();
+        cities = new ArrayList<>();
         System.out.println("cities");
     }
 
 
     private static final class Holder{
-        private static final CitiesHolder instance(){
+        private static CitiesHolder instance(){
             return new CitiesHolder();
         }
     }
@@ -24,11 +24,15 @@ public class CitiesHolder {
         return Holder.instance();
     }
 
-    public static List<City> getCities() {
+    public List<City> getCities() {
         return cities;
     }
 
-    public static boolean addCity(City city){
+    public void setCities(List<City> cities) {
+        this.cities = cities;
+    }
+
+    public boolean addCity(City city){
         if(!cities.contains(city)){
             cities.add(city);
             return true;

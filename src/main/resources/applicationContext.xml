@@ -46,17 +46,50 @@
         <constructor-arg ref="PivotBean35"/>
     </bean>
 
-    <bean id="CitiesHolderBean" class="cities.CitiesHolder" scope="singleton"></bean>
-
-    <bean id="cityMsk" class="cities.City">
-        <constructor-arg value="10000000"/>
-        <constructor-arg value="Msk"/>
+    <bean id="CitiesHolderBean" class="cities.CitiesHolder" scope="singleton">
+        <property name="cities">
+            <list>
+                <ref bean="cityMskBean"/>
+                <ref bean="citySpbBean"/>
+                <ref bean="cityMskCloneBean"/>
+                <ref bean="citNewBean"/>
+                <ref bean="citNewBean"/>
+            </list>
+        </property>
     </bean>
 
-    <bean id="foundMskBean" class="java.util.GregorianCalendar">
+    <bean id="cityMskBean" class="cities.City">
+        <constructor-arg value="Msk"/>
+        <constructor-arg value="10000000"/>
+        <constructor-arg ref="found1147Bean"/>
+    </bean>
+
+    <bean id="citNewBean" class="cities.City">
+        <constructor-arg value="NewCity"/>
+    </bean>
+
+    <bean id="cityMskCloneBean" class="cities.City">
+        <constructor-arg value="MskClone"/>
+        <constructor-arg value="10000000"/>
+        <constructor-arg ref="found1147Bean"/>
+    </bean>
+
+    <bean id="citySpbBean" class="cities.City">
+        <constructor-arg value="Spb"/>
+        <constructor-arg value="5000000"/>
+        <constructor-arg ref="found1703Bean"/>
+    </bean>
+
+    <bean id="found1147Bean" class="java.time.LocalDate" scope="prototype">
         <constructor-arg value="1147"/>
-        <constructor-arg value="0"/>
-        <constructor-arg value="0"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="1"/>
+    </bean>
+
+    <bean id="found1703Bean" class="java.time.LocalDate" scope="prototype">
+        <constructor-arg value="1703"/>
+        <constructor-arg value="5"/>
+        <constructor-arg value="27"/>
     </bean>
 
 

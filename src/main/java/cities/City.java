@@ -1,12 +1,12 @@
 package cities;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class City {
     private long population;
-    private Calendar founding;
+    private LocalDate founding;
     private String name;
 
     @Override
@@ -24,17 +24,23 @@ public class City {
         return name.hashCode();
     }
 
-    public City(long population, Calendar founding, String name) {
+    public City(String name, long population, LocalDate founding) {
         this.population = population;
         this.founding = founding;
         this.name = name;
     }
 
     public City(String name) {
-        this(0, new GregorianCalendar(), name);
+        this(name, 0, LocalDate.now());
+    }
+
+    private String getFoundation(){
+        return founding.getDayOfMonth() + " " +
+                founding.getMonth().toString().toLowerCase() + " " +
+                founding.getYear();
     }
 
     @Override
     public String toString() {
-        return name + ", poputation: " + population + ", founding: " + founding.get(Calendar.YEAR);    }
+        return name + ", population: " + population + ", founding: " + getFoundation();    }
 }
