@@ -1,13 +1,17 @@
 package cities;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Calendar;
 
 public class City {
-    private long population;
+    private int population;
     private LocalDate founding;
     private String name;
+    private static int ids = 0;
+    private int id;
+
+    public void init(){
+        id = ++ids;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -24,15 +28,13 @@ public class City {
         return name.hashCode();
     }
 
-    public City(String name, long population, LocalDate founding) {
+    /*public City(String name, int population, LocalDate founding) {
         this.population = population;
         this.founding = founding;
         this.name = name;
-    }
+    }*/
 
-    public City(String name) {
-        this(name, 0, LocalDate.now());
-    }
+
 
     private String getFoundation(){
         return founding.getDayOfMonth() + " " +
@@ -42,5 +44,29 @@ public class City {
 
     @Override
     public String toString() {
-        return name + ", population: " + population + ", founding: " + getFoundation();    }
+        return "#" + id + " " + name + ", population: " + population + ", founding: " + getFoundation();    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
+
+    public LocalDate getFounding() {
+        return founding;
+    }
+
+    public void setFounding(LocalDate founding) {
+        this.founding = founding;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

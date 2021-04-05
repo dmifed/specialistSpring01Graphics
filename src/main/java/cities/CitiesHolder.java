@@ -39,4 +39,13 @@ public class CitiesHolder {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(City c : cities){
+            stringBuilder.append(c).append("\n");
+        }
+        return stringBuilder.toString();
+    }
 }
