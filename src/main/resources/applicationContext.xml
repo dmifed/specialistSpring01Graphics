@@ -12,7 +12,8 @@
         http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/aop
    		http://www.springframework.org/schema/aop/spring-aop.xsd
-        ">
+        "
+default-autowire="byName">
 
     <bean
             id="SceneBean"
@@ -115,7 +116,13 @@
     <bean id="house" class="house.House" init-method="init" autowire="byName">
         <property name="name" value="First"/>
     </bean>
-    <bean id="wall" class="house.Wall">
+
+    <bean id="wall" class="house.Wall" autowire-candidate="false">
         <property name="material" value="brick"/>
     </bean>
+
+    <bean id="wall2" class="house.Wall">
+        <property name="material" value="logs"/>
+    </bean>
+
 </beans>

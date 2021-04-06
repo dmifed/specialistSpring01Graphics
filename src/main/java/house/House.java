@@ -15,7 +15,7 @@ public class House {
 
     public void init(){
         this.id = ++ids;
-        this.name = "House";
+        //this.name = "House";
     }
 
     public void setName(String name) {
