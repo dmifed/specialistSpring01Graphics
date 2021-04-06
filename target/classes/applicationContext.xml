@@ -111,4 +111,11 @@
         <constructor-arg value="1"/>
         <constructor-arg value="1"/>
     </bean>
+    
+    <bean id="house" class="house.House" init-method="init" autowire="byName">
+        <property name="name" value="First"/>
+    </bean>
+    <bean id="wall" class="house.Wall">
+        <property name="material" value="brick"/>
+    </bean>
 </beans>

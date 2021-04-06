@@ -17,9 +17,7 @@ public class City {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         City city = (City) o;
-
         return name.equals(city.name);
     }
 
@@ -27,14 +25,6 @@ public class City {
     public int hashCode() {
         return name.hashCode();
     }
-
-    /*public City(String name, int population, LocalDate founding) {
-        this.population = population;
-        this.founding = founding;
-        this.name = name;
-    }*/
-
-
 
     private String getFoundation(){
         return founding.getDayOfMonth() + " " +
@@ -49,7 +39,7 @@ public class City {
     public int getPopulation() {
         return population;
     }
-
+    @SuppressWarnings("unused")
     public void setPopulation(int population) {
         this.population = population;
     }
@@ -57,7 +47,7 @@ public class City {
     public LocalDate getFounding() {
         return founding;
     }
-
+    @SuppressWarnings("unused")
     public void setFounding(LocalDate founding) {
         this.founding = founding;
     }
@@ -65,8 +55,12 @@ public class City {
     public String getName() {
         return name;
     }
-
+    @SuppressWarnings("unused")
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void unUsedMethodTest(){
+
     }
 }
